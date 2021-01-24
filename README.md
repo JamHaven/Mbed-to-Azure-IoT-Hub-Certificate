@@ -1,5 +1,5 @@
 # Mbed-to-Azure-IoT-Hub
-
+This project is based on: https://github.com/coisme/Mbed-to-Azure-IoT-Hub
 Mbed OS example program connecting to Azure IoT Hub with MQTT over TLS. You can authenticate through X.509 certificates or through a symmetric key.
 
 ## Setting your device identity
