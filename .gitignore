@@ -5,3 +5,5 @@ ntp-client/
 BUILD
 .mbed
 mbed-os
+mbed_app.json
+MQTT_server_setting.h
