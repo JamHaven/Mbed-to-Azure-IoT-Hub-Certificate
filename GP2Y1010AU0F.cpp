@@ -13,12 +13,12 @@ public:
     aout: Pinname to read data from sensor, Voltage is set to 5V in constructor
     iled: Pinname to control the Infrared led to measure the dust density via the sensor
     */
-    GP2Y1010AU0F(PinName lightLed, PinName aout, PinName iled): _iled(iled), _aout(aout,5.0),  _lightLed(lightLed)
+    GP2Y1010AU0F(PinName lightLed, PinName aout, PinName iled): _iled(iled), _aout(aout,3.3),  _lightLed(lightLed)
     {
     };
     int samplingTime = 280;//280 microseconds
     int deltaTime = 20;//40 us to give total pulse width of 0.32ms, we reduce this to 20 to give the read about 10-15 us time
-    int sleepTime = 9680;//LED off for 9680 us 
+    int sleepTime = 9700;//LED off for 9700 us 
     float dustDensityCN = 0,dustDensitySharp = 0, voMeasured=0, voCalc=0; //Measured and calaculated parameters
     int measureCount = 0; // Counts up for every 5 measurements
     float averageSharp = 0, averageCN = 0; //Average of 5 reads for Sharp calculation and Chris Nafis
@@ -35,7 +35,7 @@ public:
             wait_us(sleepTime);
             
             //recover voltage
-            voCalc = voMeasured * 5 * 11; // *5 for voltage and *11 because of the specification in the usermanual
+            voCalc = voMeasured * 3.3 * 11; // *3.3 for voltage and *11 because of the specification in the usermanual
             //linear eqaution taken from http://www.howmuchsnow.com/arduino/airquality/
             // Chris Nafis (c) 2012
             dustDensityCN = 0.17 * voCalc - 0.1; // Most commonly used formular

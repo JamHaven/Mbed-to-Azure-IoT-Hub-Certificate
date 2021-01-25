@@ -274,7 +274,7 @@ int main(int argc, char *argv[]) {
       char buf[len];
       // snprintf(buf, len, "Message #%d from %s.", count, DEVICE_ID);
       dust.measure();
-      // dust.printLastMeasurement();
+       dust.printLastMeasurement();
       dust.printAverageDensity();
       snprintf(buf, len, "{\"messageId\":%d,\"dustSharp\":%f,\"dustCN\":%f}",
                dust.measureCount, dust.averageSharp, dust.averageCN);
